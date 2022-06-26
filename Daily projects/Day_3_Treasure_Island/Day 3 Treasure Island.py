@@ -8,27 +8,47 @@
 *************************************************************************************************************
 """
 
-# Exercise 3 - Leap Year
-
+# Exercise 3.4 - Pizza Order Practice
 '''
-Instructions:   Write a program that works out whether if a given year is a leap year. A normal year has 365 days, leap years have 366, with an extra day in February.
+Instructions
+Congratulations, you've got a job at Python Pizza. Your first job is to build an automatic pizza order program.
+
+Based on a user's order, work out their final bill.
+
+Small Pizza: $15
+
+Medium Pizza: $20
+
+Large Pizza: $25
+
+Pepperoni for Small Pizza: +$2
+
+Pepperoni for Medium or Large Pizza: +$3
+
+Extra cheese for any size pizza: + $1
 '''
-# To determine whether a year is a leap year, follow these steps:
+# 🚨 Don't change the code below 👇
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+# 🚨 Don't change the code above 👆
 
-# If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
-# If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
-# If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
-# The year is a leap year (it has 366 days).
-# The year is not a leap year (it has 365 days).
-
-year = int(input("What year do you want to check? "))
-if year % 4 ==0:
-    if year % 100 ==0:
-        if year % 400 ==0:
-            print("Leap year.")
-        else:
-            print("Not leap year.")
-    else:
-        print("Leap year.")
+#Write your code below this line 👇
+bill = 0
+if size == "S":
+    bill += 15
+elif size == "M":
+    bill += 20
 else:
-    print("Not leap year.")
+    bill += 20
+
+if add_pepperoni == "Y":
+    if size == "S":
+        bill +=2
+    else:
+        bill +=3
+if extra_cheese == "Y":
+    bill +=1
+
+print(f"Your final bill is: ${bill}.")
