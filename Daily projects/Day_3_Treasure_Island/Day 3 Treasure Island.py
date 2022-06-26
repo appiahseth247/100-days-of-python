@@ -8,34 +8,27 @@
 *************************************************************************************************************
 """
 
-# Exercise 2 - BMI 2.0
-'''
-Instructions
-Write a program that interprets the Body Mass Index (BMI) based on a user's weight and height.
-
-It should tell them the interpretation of their BMI based on the BMI value.
-
-Under 18.5 they are underweight
-Over 18.5 but below 25 they have a normal weight
-Over 25 but below 30 they are slightly overweight
-Over 30 but below 35 they are obese
-Above 35 they are clinically obese.
+# Exercise 3 - Leap Year
 
 '''
-height = float(input("enter your height in m: "))
-weight = float(input("enter your weight in kg: "))
-# 🚨 Don't change the code above 👆
+Instructions:   Write a program that works out whether if a given year is a leap year. A normal year has 365 days, leap years have 366, with an extra day in February.
+'''
+# To determine whether a year is a leap year, follow these steps:
 
-#Write your code below this line 👇
-BMI =round(weight / height**2)
+# If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
+# If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
+# If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
+# The year is a leap year (it has 366 days).
+# The year is not a leap year (it has 365 days).
 
-if BMI < 18.5:
-    print(f"Your BMI is {BMI}, you are underweight.")
-elif 18.5 < BMI < 25:
-        print(f"Your BMI is {BMI}, you have a normal weight.")
-elif 25 < BMI < 30: 
-        print(f"Your BMI is {BMI}, you are slightly overweight.")
-elif 30 < BMI < 35:
-        print(f"Your BMI is {BMI}, you are obese.")
+year = int(input("What year do you want to check? "))
+if year % 4 ==0:
+    if year % 100 ==0:
+        if year % 400 ==0:
+            print("Leap year.")
+        else:
+            print("Not leap year.")
+    else:
+        print("Leap year.")
 else:
-        print(f"Your BMI is {BMI}, you are clinically obese.")
+    print("Not leap year.")
