@@ -10,8 +10,20 @@
 
 
 
-# Exercise 2.3
-# Instructions
-# Write a program that prints the number of characters in a user's name. You might need to Google for a function that calculates the length of a string.
-#Write your code below this line 👇
-print(len(input("what is your name?\n")))
+#Day 2.3 Your life in weeks
+#This code calculates the number of years, months and days left if you are to live for  90 years
+Life_span_in_years = 90
+Life_span_in_months = 90*12
+Life_span_in_days = 90*365
+Life_span_in_weeks = 90*52
+
+age = input("How old are you?\n")
+current_age = int(age)
+
+yeas_left = Life_span_in_years - current_age
+months_left = Life_span_in_months  - current_age*12
+weeks_left= Life_span_in_weeks - current_age*52
+days_left = Life_span_in_days - current_age*365
+
+print(f'You have {days_left} days, {weeks_left} weeks, and {months_left} months left')
+
