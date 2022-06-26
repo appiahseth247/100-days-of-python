@@ -8,16 +8,10 @@
 *****************************************************************
 """
 
-# Exercise 2.1
+
+
+# Exercise 2.3
 # Instructions
-# Write a program that adds the digits in a 2 digit number. e.g. if the input was 35, then the output should be 3 + 5 = 8
-# 🚨 Don't change the code below 👇
-two_digit_number = input("Type a two digit number: ")
-# 🚨 Don't change the code above 👆
-
-####################################
+# Write a program that prints the number of characters in a user's name. You might need to Google for a function that calculates the length of a string.
 #Write your code below this line 👇
-type(two_digit_number)
-numb =(two_digit_number)
-results = print(int(numb[0]) + int(numb[1]))
-
+print(len(input("what is your name?\n")))
