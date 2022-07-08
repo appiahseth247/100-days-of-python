@@ -8,41 +8,66 @@
 *************************************************************************************************************
 """
 
-# Exercise 4.2 - Banker Roulette (Who pays the bill)
-"""Instructions You are going to write a program that will select a random name from a list of names. The person 
-selected will have to pay for everybody's food bill. 
-
-Important: You are not allowed to use the choice() function.
-
-Line 8 splits the string names_string into individual names and puts them inside a List called names. For this to 
-work, you must enter all the names as names followed by comma then space. e.g. name, name, name 
-
-When you run the code, just use a random number as the seed. e.g. 67346 It doesn't matter what you chose, 
-it's only for our testing code to check your work. 
-
-Example Input
-Angela, Ben, Jenny, Michael, Chloe
-Note: notice that there is a space between the comma and the next name.
-
-Example Output
-Michael is going to buy the meal today!
+# Exercise 4.3 - Treasure Map
 """
+Instructions
+You are going to write a program that will mark a spot with an X.
 
-import random
+In the starting code, you will find a variable called map.
 
-names_string = input("Give me everybody's names, separated by a comma. ")
-names = names_string.split(", ")  # split takes strings and put them into a list separated by whatever is in ("")
-print(names)
-lens = int(len(names) - 1)
+This map contains a nested list. When map is printed this is what the nested list looks like:
 
+['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️']
+
+In the starting code, we have used new lines (\n) to format the three rows into a square, like this:
+
+['⬜️', '⬜️', '⬜️']
+
+['⬜️', '⬜️', '⬜️']
+
+['⬜️', '⬜️', '⬜️']
+
+This is to try and simulate the coordinates on a real map.
+
+First, your program must take the user input and convert it to a usable format.
+
+Next, you need to use it to update your nested list with an "x".
+
+Example Input 1
+column 2, row 3 would be entered as:
+
+23
+Example Output 1
+['⬜️', '⬜️', '⬜️']
+['⬜️', '⬜️', '⬜️']
+['⬜️', 'X', '⬜️']
+Example Input 2
+column 3, row 1 would be entered as:
+
+31
+Example Output 2
+['⬜️', '⬜️', 'X']
+['⬜️', '⬜️', '⬜️']
+['⬜️', '⬜️', '⬜️']
+"""
+# 🚨 Don't change the code below 👇
+row1 = ["⬜️", "⬜️", "⬜️"]
+row2 = ["⬜️", "⬜️", "⬜️"]
+row3 = ["⬜️", "⬜️", "⬜️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? Enter the row and column number together (tow-digits): ")
 # 🚨 Don't change the code above 👆
 
-# Write your code below this line 👇
-payer_number = random.randint(0, lens)
-print(payer_number)
-payer_name = names[payer_number]
-print(f"{payer_name} is going to buy the meal today!")
+real_map = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
 
-# Using random.choice could have done the same thing too
-"""payer_name = random.choice(names) #it picks an element directly from, the list
-print(f"{payer_name} is going to buy the meal today!")"""
+horizontal = int(position[0])  # the first digit entered has position 0, and it goes to select the particular list
+# (to be worked on) among the entire list (real_map)
+
+vertical = int(position[1])  # the 2nd digits locates the exact element
+# (to be changed) among the elements in the selected list
+
+selected_row = map[horizontal - 1][vertical - 1] = "X"  # the entered row and column are reduced by 1 because
+
+# 🚨 Don't change the code below 👇
+print(f"{row1}\n{row2}\n{row3}")
