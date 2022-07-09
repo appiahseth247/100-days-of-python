@@ -8,26 +8,22 @@
 *************************************************************************************************************
 """
 
-# Exercise 5.1 - Average Height
-"""Instructions You are going to write a program that calculates the average student height from a List of heights. 
-Important You should not use the sum() or len() functions in your answer. You should try to replicate their 
-functionality using what you have learnt about for loops. """
+# Exercise 5.2 - High Score
 
-# Write your code below this row 👇
+"""Instructions
+You are going to write a program that calculates the highest score from a List of scores.
+Important you are not allowed to use the max or min functions.
+"""
 # 🚨 Don't change the code below 👇
-student_heights = input(
-    "Input a list of student heights ").split()  # split() takes the inputted height and make a list out of it
-# separated by space
-for n in range(0, len(student_heights)):
-    student_heights[n] = int(student_heights[n])  # change the input string to integer for calculation
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+    student_scores[n] = int(student_scores[n])
+print(student_scores)
 # 🚨 Don't change the code above 👆
 
-total_height = 0
-for height in student_heights:
-    total_height += height
-
-total_num = 0
-for length in student_heights:
-    total_num += 1
-average = total_height / total_num
-print(round(average))
+# Write your code below this row 👇
+highest_score = 0
+for score in student_scores:
+    if score > highest_score:
+        highest_score = score
+print(f"The highest score in the class is: {highest_score}")
