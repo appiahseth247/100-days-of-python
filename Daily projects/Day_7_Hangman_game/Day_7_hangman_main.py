@@ -37,45 +37,51 @@ print(display)
 
 # TODO-5: Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the
 #  letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+
+guesses = []  # To hold all the letters the user guesses
 # "_" in display: This also works instead of using the flag end_of_game
-end_of_game = False
-while not end_of_game:
+is_game_on = True
+while is_game_on:
     guess = input("Guess a letter: ")
+
     # Use the clear() function imported from replit to clear the output between guesses.
     # clear()  # for pycharm
     os.system('cls')
-    if guess in display:
+    if guess in guesses:
         print(f"You've already guessed {guess}")
-
+        print(f"{' '.join(display)}")
+        print(stages[lives])
+    else:
+        guesses.append(guess)
     # TODO-3: - Loop through each position in the chosen_word;
     #  If the letter at that position matches 'guess' then reveal that letter in the display at that position.
     #  e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].
-    for position in range(len(chosen_word)):  # range(5) for apple
-        if chosen_word[position] == guess:  # apple[1] = p
-            display[position] = guess  # ["_", "p", "p", "_", "_"]
+        for position in range(len(chosen_word)):  # range(5) for apple
+            if chosen_word[position] == guess:  # apple[1] = p
+                display[position] = guess  # ["_", "p", "p", "_", "_"]
 
-    # TODO-7: - If guess is not a letter in the chosen_word,Then reduce 'lives' by 1.
-    #  If lives goes down to 0 then the game should stop and it should print "You lose."
-    if guess not in chosen_word:
-        lives -= 1
-        print(f"You guessed '{guess}', which is not in the word. So, you lose a precious life:(")
-        if lives == 0:
-            end_of_game = True
-            print("You lose.")
-            print(f"The word is : {chosen_word}")
+        # TODO-7: - If guess is not a letter in the chosen_word,Then reduce 'lives' by 1.
+        #  If lives goes down to 0 then the game should stop and it should print "You lose."
+        if guess not in chosen_word:
+            lives -= 1
+            print(f"You guessed '{guess}', which is not in the word. So, you lose a precious life:(")
+            if lives == 0:
+                is_game_on = False
+                print("You lose.")
+                print(f"The word is : {chosen_word}")
 
-    # Join all the elements in the list and turn it into a String.
-    print(f"{' '.join(display)}")
+        # Join all the elements in the list and turn it into a String.
+        print(f"{' '.join(display)}")
 
-    # TODO-4: - Print 'display' and you should see the guessed letter in the correct position and every other letter
-    #  replace with "_". Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in
-    #  TODO-5.
+        # TODO-4: - Print 'display' and you should see the guessed letter in the correct position and every other letter
+        #  replace with "_". Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in
+        #  TODO-5.
 
-    if "_" not in display:
-        end_of_game = True
-        print("You win")
-        print(f"The word is indeed : {chosen_word}")
+        if "_" not in display:
+            is_game_on = False
+            print("You win")
+            print(f"The word is indeed : {chosen_word}")
 
-    # TODO-8: - print the ASCII art from 'stages' that corresponds to the current number of 'lives' the user has
-    #  remaining.
-    print(stages[lives])
+        # TODO-8: - print the ASCII art from 'stages' that corresponds to the current number of 'lives' the user has
+        #  remaining.
+        print(stages[lives])
