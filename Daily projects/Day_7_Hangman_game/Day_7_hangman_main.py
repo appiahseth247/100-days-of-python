@@ -13,6 +13,20 @@ from Day_7_hangman_art import stages, logo
 from Day_7_hangman_words import word_list, days, months_days, sentences
 import os
 
+
+import requests
+from lxml import html
+
+# request the page
+page = requests.get('https://randomword.com/')
+# parsing the page
+tree = html.fromstring(page.content)
+
+# retrieve value using XPath
+# convert the retrieved value to a string type
+chosen_word = str(list.pop(tree.xpath('/html/body/div[4]/div[1]/div[1]/text()')))  # play around with the numbers
+hint = str(list.pop(tree.xpath('/html/body/div[4]/div[1]/div[1]/text()')))
+
 # If you're using PyCharm, you need to enable the "Emulate Terminal in Console" toggle before any coding will work.
 # Go to Run, Edit Configurations, and Execution. Then you can use the import os, os.system("clear")
 
@@ -20,12 +34,16 @@ username = input("What's your name?: ")
 print(f"Hey {username}!, Welcome to the hangman game!\nYour goal is guess the corrct word")
 print(logo)
 
+
+print(f'Pssst, the solution is {chosen_word}.')
+print(f'The hint is : {hint}')
+
 # TODO-6: - Create a variable called 'lives' to keep track of the number of lives left.
 # Set 'lives' to equal 6
 lives = 6
 
 # TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
-chosen_word = random.choice(months_days)
+# chosen_word = random.choice(months_days)
 
 # TODO-2: - Create an empty List called display. For each letter in the chosen_word, add a "_" to 'display'. So if
 #  the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to
