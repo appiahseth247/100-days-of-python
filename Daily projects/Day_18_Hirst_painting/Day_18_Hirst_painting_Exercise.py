@@ -7,7 +7,7 @@
 *    Date: 2022-04-15                                                                                       *
 *************************************************************************************************************
 """
-
+import random
 import turtle
 from turtle import Turtle, Screen, pendown, penup
 
@@ -19,11 +19,13 @@ tim = Turtle()
 tim.shape("turtle")
 turtle.colormode(255)
 
-# Exercise 18.2 -  Draw dashed Lines
-for i in range(20):
-    tim.pendown()
-    tim.fd(10)
-    tim.penup()
-    tim.fd(10)
+# Exercise 18.3 - Draw Shapes(polygons)
+colors = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
+for n in range(3, 11):
+    angle = 360/n
+    tim.color(random.choice(colors))
+    for i in range(n):
+        tim.right(angle)
+        tim.fd(100)
 
 screen.exitonclick()
