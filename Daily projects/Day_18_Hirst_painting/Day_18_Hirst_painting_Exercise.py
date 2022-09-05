@@ -20,7 +20,7 @@ tim.shape("turtle")
 turtle.colormode(255)  # To use the RGB format of coloring
 
 
-# Exercise 18.Challenge 4 - Generate a Random Walk
+# Exercise 18.Challenge 5 - Spirograph
 def rand_color():  # RGB
     r = random.randint(0, 255)  # The higher the number the deeper the color generated
     g = random.randint(0, 255)
@@ -29,11 +29,10 @@ def rand_color():  # RGB
     return random_color
 
 
-for n in range(150):
+for n in range(72):  # full circle (360) / tilt angle(5) = 72
+    tim.speed(0)
     tim.color(rand_color())
-    tim.seth(random.choice([0, 90, 180, 270]))  # move toward a random direction (angle)
-    tim.speed(0)  # fastest
-    tim.pensize(10)
-    tim.fd(40)
+    tim.circle(150)  # radius of 50
+    tim.lt(5)  # Turn left by 5 degree
 
 screen.exitonclick()
