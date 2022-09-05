@@ -9,7 +9,7 @@
 """
 
 import turtle
-from turtle import Turtle, Screen
+from turtle import Turtle, Screen, pendown, penup
 
 screen = Screen()
 
@@ -19,16 +19,11 @@ tim = Turtle()
 tim.shape("turtle")
 turtle.colormode(255)
 
-# Exercise 18.1 - Draw a Square and Dots
-for i in range(4):
-    tim.forward(100)
-    tim.right(90)
-
-# Drawing the dots
-tim.fd(100)  # move 100 paces away from the square above
-for i in range(10):
+# Exercise 18.2 -  Draw dashed Lines
+for i in range(20):
+    tim.pendown()
+    tim.fd(10)
     tim.penup()
-    tim.fd(50)
-    tim.dot(20, "blue")  # dot size and color
-tim.fd(100)
+    tim.fd(10)
+
 screen.exitonclick()
