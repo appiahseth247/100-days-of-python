@@ -35,19 +35,23 @@
 # print(passed_students)
 
 
-# TODO:  Exercise 26.4 - Squaring numbers (List comprehension)
+# TODO:  Exercise 26.5 - From degrees to Fahrenheit (Dictionary comprehension)
 """
 Instructions
-You are going to write a List Comprehension to create a new list called squared_numbers. This new list should contain
- every number in the list numbers but each number should be squared.
-
+You are going to use Dictionary Comprehension to create a dictionary called `weather_f` that takes each temperature
+ in degrees Celsius and converts it into degrees Fahrenheit.
 """
-numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-# 🚨 Do Not Change the code above 👆
+weather_c = {
+    "Monday": 12,
+    "Tuesday": 14,
+    "Wednesday": 15,
+    "Thursday": 14,
+    "Friday": 21,
+    "Saturday": 22,
+    "Sunday": 24,
+}
+# 🚨 Don't change code above 👆
+# Write your code 👇 below:
+weather_f = {day: temp_c * 9 / 5 + 32 for (day, temp_c) in weather_c.items()}
 
-# Write your 1 line code 👇 below:
-squared_numbers = [n ** 2 for n in numbers]
-
-# Write your code 👆 above:
-
-print(squared_numbers)
+print(weather_f)
