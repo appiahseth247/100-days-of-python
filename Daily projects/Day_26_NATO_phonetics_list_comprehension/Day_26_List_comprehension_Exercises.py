@@ -1,5 +1,3 @@
-import random, pandas
-
 """
 *************************************************************************************************************
 *    Course: 100 Days of Code - Dr. Angela Yu                                                               *
@@ -22,7 +20,7 @@ import random, pandas
 
 # num = [n * 2 for n in range(1, 5)]
 
-# names = ["kofi", "Joyce", "Mike", "jkdsndfosl"]
+# names = ["kofi", "Joyce", "Mike", "Ben"]
 # short_names = [name for name in names if len(name) == 4]
 # long_names = [name.upper() for name in names if len(name) > 4]
 """
@@ -30,24 +28,29 @@ import random, pandas
 # TODO: Dictionary comprehension
 # new_dict = {new_key:new_value for item in list}  : from a list
 # new_dict = {new_key:new_value for (key:value) in dict.items() if test} : from a dict
-# names = ["kofi", "Joyce", "Mike", "jkdsndfosl"]
+# names = ["kofi", "Joyce", "Mike", "Ben"]
 # students_scores = {student: random.randint(1, 100) for student in names}
 # print(students_scores)
 # passed_students = {student: score for (student, score) in students_scores.items() if score > 60}
 # print(passed_students)
 
 
-# TODO:  Exercise 26.2 - List comprehension (Sort out even numbers)
+# TODO:  Exercise 26.3 - Data Overlap
 """
 Instructions
-You are going to write a List Comprehension to create a new list called result. This new list should only contain
- the even numbers from the list numbers.
+Take a look inside file1.txt and file2.txt. They each contain a bunch of numbers, each number on a new line.
+
+You are going to create a list called result which contains the numbers that are common in both files
 """
-numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-# 🚨 Do Not Change the code above
+with open("file1.txt") as file1:
+    file1_content = file1.readlines()
+    file1_list = [int(n.strip("\n")) for n in file1_content]
+with open("file2.txt") as file2:
+    file2_content = file2.readlines()
+    file2_list = [int(n.strip("\n")) for n in file2_content]
+result = [n for n in file1_list if n in file2_list]
+# Write your code above 👆
 
-# Write your 1 line code 👇 below:
-result = [n for n in numbers if n % 2 == 0]
-# Write your code 👆 above:
-
+# print(file1_list)
+# print(file2_list)
 print(result)
