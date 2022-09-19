@@ -1,4 +1,5 @@
 import random, pandas
+
 """
 *************************************************************************************************************
 *    Course: 100 Days of Code - Dr. Angela Yu                                                               *
@@ -36,14 +37,17 @@ import random, pandas
 # print(passed_students)
 
 
-# Exercise 26.1 - Dictionary comprehension (letters count)
+# TODO:  Exercise 26.2 - List comprehension (Sort out even numbers)
 """
 Instructions
-Takes each word in the given sentence and calculates the number of letters in each word to make a dict
+You are going to write a List Comprehension to create a new list called result. This new list should only contain
+ the even numbers from the list numbers.
 """
-sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
-# Don't change code above 👆
+numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+# 🚨 Do Not Change the code above
 
-# Write your code below
-result = {word: len(word) for word in sentence.split()}  # .split() use words in a sentence to make a list of them
+# Write your 1 line code 👇 below:
+result = [n for n in numbers if n % 2 == 0]
+# Write your code 👆 above:
+
 print(result)
