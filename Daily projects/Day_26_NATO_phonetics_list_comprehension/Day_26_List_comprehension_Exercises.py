@@ -35,22 +35,19 @@
 # print(passed_students)
 
 
-# TODO:  Exercise 26.3 - Data Overlap
+# TODO:  Exercise 26.4 - Squaring numbers (List comprehension)
 """
 Instructions
-Take a look inside file1.txt and file2.txt. They each contain a bunch of numbers, each number on a new line.
+You are going to write a List Comprehension to create a new list called squared_numbers. This new list should contain
+ every number in the list numbers but each number should be squared.
 
-You are going to create a list called result which contains the numbers that are common in both files
 """
-with open("file1.txt") as file1:
-    file1_content = file1.readlines()
-    file1_list = [int(n.strip("\n")) for n in file1_content]
-with open("file2.txt") as file2:
-    file2_content = file2.readlines()
-    file2_list = [int(n.strip("\n")) for n in file2_content]
-result = [n for n in file1_list if n in file2_list]
-# Write your code above 👆
+numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+# 🚨 Do Not Change the code above 👆
 
-# print(file1_list)
-# print(file2_list)
-print(result)
+# Write your 1 line code 👇 below:
+squared_numbers = [n ** 2 for n in numbers]
+
+# Write your code 👆 above:
+
+print(squared_numbers)
