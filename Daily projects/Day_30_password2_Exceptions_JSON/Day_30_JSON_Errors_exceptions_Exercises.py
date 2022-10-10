@@ -8,39 +8,51 @@
 *************************************************************************************************************
 """
 
-# Exercise 30.1 - Handling IndexError
+# Exercise 30.2 - Exercise Handling KeyError
 
 """
 Instructions
-- We've got some buggy code. Try running the code. The code will crash and give you an IndexError. 
-- This is because we're looking through the list of fruits for an index that is out of range.
-- Use what you've learnt about exception handling to prevent the program from crashing
-- If the user enters something that is out of range just print a default output of "Fruit pie".
+- We've got some buggy code, try running the code. The code will crash and give you a KeyError. 
+- This is because some of the posts in the facebook_posts don't have any "Likes".
+- Use what you've learnt about exception handling to prevent the program from crashing.
 
 Original code below
-fruits = ["Apple", "Pear", "Orange"]
+facebook_posts = [
+    {'Likes': 21, 'Comments': 2}, 
+    {'Likes': 13, 'Comments': 2, 'Shares': 1}, 
+    {'Likes': 33, 'Comments': 8, 'Shares': 3}, 
+    {'Comments': 4, 'Shares': 2}, 
+    {'Comments': 1, 'Shares': 1}, 
+    {'Likes': 19, 'Comments': 3}
+]
 
-#TODO: Catch the exception and make sure the code runs without crashing.
-def make_pie(index):
-    fruit = fruits[index]
-    print(fruit + " pie")
+total_likes = 0
+
+for post in facebook_posts:
+    total_likes = total_likes + post['Likes']
 
 
-make_pie(4)
+print(total_likes)
 
 """
 # Solution
-fruits = ["Apple", "Pear", "Orange"]
+facebook_posts = [
+    {'Likes': 21, 'Comments': 2},
+    {'Likes': 13, 'Comments': 2, 'Shares': 1},
+    {'Likes': 33, 'Comments': 8, 'Shares': 3},
+    {'Comments': 4, 'Shares': 2},
+    {'Comments': 1, 'Shares': 1},
+    {'Likes': 19, 'Comments': 3}
+]
 
+total_likes = 0
 
-# TODO: Catch the exception and make sure the code runs without crashing.
-def make_pie(index):
+for post in facebook_posts:
     try:
-        fruit = fruits[index]
-    except IndexError:
-        print("fruit pie")
-    else:
-        print(fruit + " pie")
+        total_likes = total_likes + post['Likes']
+    except KeyError:
+        pass
+        # total_likes = total_likes + 0
+        # total_likes =+0
 
-
-make_pie(4)
+print(total_likes)
