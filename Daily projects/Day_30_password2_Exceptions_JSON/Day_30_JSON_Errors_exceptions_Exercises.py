@@ -8,51 +8,47 @@
 *************************************************************************************************************
 """
 
-# Exercise 30.2 - Exercise Handling KeyError
-
+# Exercise 30.3 - [Challenge] Handling KeywordError in Day 26 NATO phonetics
 """
 Instructions
-- We've got some buggy code, try running the code. The code will crash and give you a KeyError. 
-- This is because some of the posts in the facebook_posts don't have any "Likes".
-- Use what you've learnt about exception handling to prevent the program from crashing.
-
-Original code below
-facebook_posts = [
-    {'Likes': 21, 'Comments': 2}, 
-    {'Likes': 13, 'Comments': 2, 'Shares': 1}, 
-    {'Likes': 33, 'Comments': 8, 'Shares': 3}, 
-    {'Comments': 4, 'Shares': 2}, 
-    {'Comments': 1, 'Shares': 1}, 
-    {'Likes': 19, 'Comments': 3}
-]
-
-total_likes = 0
-
-for post in facebook_posts:
-    total_likes = total_likes + post['Likes']
-
-
-print(total_likes)
-
+- For Day 26 main, if the user enters a number instead of a letter or word, the code will crash and report keyword Error
+- Modify a part of the code and give feedback to the user to enter ONLY an alphabet in the English Language
+- 
 """
+
+
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
+
+import pandas
+
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+# TODO 1. Create a dictionary in this format:
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+print(phonetic_dict)
+
 # Solution
-facebook_posts = [
-    {'Likes': 21, 'Comments': 2},
-    {'Likes': 13, 'Comments': 2, 'Shares': 1},
-    {'Likes': 33, 'Comments': 8, 'Shares': 3},
-    {'Comments': 4, 'Shares': 2},
-    {'Comments': 1, 'Shares': 1},
-    {'Likes': 19, 'Comments': 3}
-]
-
-total_likes = 0
-
-for post in facebook_posts:
+# TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+while KeyError:
+    word = input("Enter a word: ").upper()
     try:
-        total_likes = total_likes + post['Likes']
+        output_list = [phonetic_dict[letter] for letter in word]
     except KeyError:
-        pass
-        # total_likes = total_likes + 0
-        # total_likes =+0
+        print("Only English alphabet please")
+    else:
+        print(output_list)
+        break
 
-print(total_likes)
+# ********* Angela's solution ********* but mine is better
+# def generate_phonetic():
+#     word = input("Enter a word: ").upper()
+#     try:
+#         output_list = [phonetic_dict[letter] for letter in word]
+#     except KeyError:
+#         print("Only English alphabet please")
+#         generate_phonetic()
+#     else:
+#         print(output_list)
+#
+#
+# generate_phonetic()
