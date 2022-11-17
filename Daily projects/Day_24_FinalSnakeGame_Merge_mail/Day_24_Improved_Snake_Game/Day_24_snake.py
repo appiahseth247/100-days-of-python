@@ -34,6 +34,7 @@ class Snake:
         self.segments.clear()  # To delete all the items in segment
         self.create_snake()  # Create a new set of segments are the starting position
         self.head = self.segments[0]
+        self.move_speed = 0.9
 
     def extend(self):
         self.add_segment(self.segments[-1].position())
